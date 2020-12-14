@@ -1,4 +1,4 @@
-package lk.ijse.dep.web;
+package lk.ijse.dep.web.api;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -22,7 +22,7 @@ import java.sql.Statement;
 public class ItemServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","http://localhost:3000");
+//        resp.addHeader("Access-Control-Allow-Origin","http://localhost:3000");
         resp.setContentType("application/xml");
         try (PrintWriter out = resp.getWriter()) {
             try {

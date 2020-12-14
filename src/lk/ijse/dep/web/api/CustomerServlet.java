@@ -1,4 +1,4 @@
-package lk.ijse.dep.web;
+package lk.ijse.dep.web.api;
 
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
@@ -24,16 +24,7 @@ import java.util.List;
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
 
-    @Override
-    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        resp.addHeader("Access-Control-Allow-Headers", "Content-Type");
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        response.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         response.setContentType("application/json");
 
         BasicDataSource cp = (BasicDataSource) getServletContext().getAttribute("cp");
@@ -76,8 +67,6 @@ public class CustomerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = request.getParameter("id");
-
-        resp.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         resp.setContentType("application/json");
         BasicDataSource cp = (BasicDataSource) getServletContext().getAttribute("cp");
         try (Connection connection = cp.getConnection()) {
